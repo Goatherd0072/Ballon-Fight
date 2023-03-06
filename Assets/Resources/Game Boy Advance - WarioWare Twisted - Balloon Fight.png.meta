@@ -1,0 +1,597 @@
+fileFormatVersion: 2
+guid: b0cdfad2f7b647d45a13d3c0724c7729
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Game Boy Advance - WarioWare Twisted - Balloon Fight_1
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 443
+        width: 12
+        height: 25
+      alignment: 9
+      pivot: {x: 0.43008423, y: 0.43288085}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f1ea2945ed121941b58bd223567b1d1
+      internalID: 741876037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - WarioWare Twisted - Balloon Fight_0
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 476
+        width: 28
+        height: 28
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77b023d22c32642428f268700126c048
+      internalID: -888414024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - WarioWare Twisted - Balloon Fight_2
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 344
+        width: 240
+        height: 160
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02ca1faee55c4ba49bc1bdcdaeac9d50
+      internalID: -1113721159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - WarioWare Twisted - Balloon Fight_3
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 344
+        width: 240
+        height: 160
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1536c1f5f66a6874499e00caf1cb7582
+      internalID: -8229799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - WarioWare Twisted - Balloon Fight_4
+      rect:
+        serializedVersion: 2
+        x: 668
+        y: 344
+        width: 240
+        height: 160
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03108612efea53f49975fd8848f387b3
+      internalID: -405810457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - WarioWare Twisted - Balloon Fight_5
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 451
+        width: 78
+        height: 18
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8679fc33b46a65845b887f261532fad7
+      internalID: -1374022981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - WarioWare Twisted - Balloon Fight_6
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 387
+        width: 90
+        height: 42
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 572f4e0794cc8ef4f80cb6a4b0fe569d
+      internalID: 885006560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - WarioWare Twisted - Balloon Fight_7
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 412
+        width: 54
+        height: 15
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ad33822339f99340949f5ac6a5b125b
+      internalID: 1690801821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - WarioWare Twisted - Balloon Fight_8
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 412
+        width: 8
+        height: 15
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9693aeaf33f0f8845baf3e5d9c903dc0
+      internalID: -768676330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - WarioWare Twisted - Balloon Fight_9
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 299
+        width: 34
+        height: 82
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a8ecc22c855a4f459a28afdfa565ed7
+      internalID: -943521022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - WarioWare Twisted - Balloon Fight_10
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 331
+        width: 78
+        height: 50
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a9a38db60b26e34d995fe17d873c664
+      internalID: 61806959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - WarioWare Twisted - Balloon Fight_11
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 176
+        width: 240
+        height: 160
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0104430e239123440814e54d78105fce
+      internalID: -1884298187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - WarioWare Twisted - Balloon Fight_12
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 176
+        width: 240
+        height: 160
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 166423c0d28914d438305d415afbe14f
+      internalID: 596481474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - WarioWare Twisted - Balloon Fight_13
+      rect:
+        serializedVersion: 2
+        x: 668
+        y: 176
+        width: 240
+        height: 160
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac4775cc0381c404ab6541c0902a09d7
+      internalID: 60656313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - WarioWare Twisted - Balloon Fight_14
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 307
+        width: 18
+        height: 18
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5e5c47b32c365f4e968b8bf7e2faacd
+      internalID: 565455547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - WarioWare Twisted - Balloon Fight_15
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 235
+        width: 158
+        height: 58
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9afa8ddadf1b1984983bb186f1857d25
+      internalID: 913520850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - WarioWare Twisted - Balloon Fight_16
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 6
+        width: 103
+        height: 28
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8e438df1b5e0c145b3d970262b2a8be
+      internalID: 1128985244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - WarioWare Twisted - Balloon Fight_17
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 8
+        width: 240
+        height: 160
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca4b73b0789211e46a9d645b64a7cfb9
+      internalID: 1553369539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - WarioWare Twisted - Balloon Fight_18
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 8
+        width: 240
+        height: 160
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ec1d719ebcf809409ee48e3550c1e03
+      internalID: -671171026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - WarioWare Twisted - Balloon Fight_19
+      rect:
+        serializedVersion: 2
+        x: 668
+        y: 8
+        width: 240
+        height: 160
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0fe1b117cd33704d97b87c28f454bed
+      internalID: -946102409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - WarioWare Twisted - Balloon Fight_20
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 444
+        width: 11
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba4d282bf77df0245966c4a708de2d33
+      internalID: -1818248255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Game Boy Advance - WarioWare Twisted - Balloon Fight_15: 913520850
+      Game Boy Advance - WarioWare Twisted - Balloon Fight_18: -671171026
+      Game Boy Advance - WarioWare Twisted - Balloon Fight_0: -888414024
+      Game Boy Advance - WarioWare Twisted - Balloon Fight_16: 1128985244
+      Game Boy Advance - WarioWare Twisted - Balloon Fight_17: 1553369539
+      Game Boy Advance - WarioWare Twisted - Balloon Fight_8: -768676330
+      Game Boy Advance - WarioWare Twisted - Balloon Fight_13: 60656313
+      Game Boy Advance - WarioWare Twisted - Balloon Fight_6: 885006560
+      Game Boy Advance - WarioWare Twisted - Balloon Fight_20: -1818248255
+      Game Boy Advance - WarioWare Twisted - Balloon Fight_7: 1690801821
+      Game Boy Advance - WarioWare Twisted - Balloon Fight_12: 596481474
+      Game Boy Advance - WarioWare Twisted - Balloon Fight_11: -1884298187
+      Game Boy Advance - WarioWare Twisted - Balloon Fight_10: 61806959
+      Game Boy Advance - WarioWare Twisted - Balloon Fight_5: -1374022981
+      Game Boy Advance - WarioWare Twisted - Balloon Fight_14: 565455547
+      Game Boy Advance - WarioWare Twisted - Balloon Fight_19: -946102409
+      Game Boy Advance - WarioWare Twisted - Balloon Fight_4: -405810457
+      Game Boy Advance - WarioWare Twisted - Balloon Fight_3: -8229799
+      Game Boy Advance - WarioWare Twisted - Balloon Fight_9: -943521022
+      Game Boy Advance - WarioWare Twisted - Balloon Fight_2: -1113721159
+      Game Boy Advance - WarioWare Twisted - Balloon Fight_1: 741876037
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
