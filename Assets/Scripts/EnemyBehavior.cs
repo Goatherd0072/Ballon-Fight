@@ -9,8 +9,10 @@ public class EnemyBehavior : MonoBehaviour
     public float upMoveSpeed;
     public bool isAttachTop = false; //是否碰到顶部
     public bool isUpMove = true; //是否向上移动
+    public bool isReset = false; //是否在重整
     public int ballonNum = 1; //气球数量
     public float upDistance; //上升的距离
+    public float resetTime = 5f; //气球破了落地，但未被杀死，进行重整的时间
 
      [Header("判断检测点")]
     public Transform checkPoint;
@@ -32,21 +34,23 @@ public class EnemyBehavior : MonoBehaviour
 
     void Update()
     {
-        if (transform.position.y >= _endPositon || isAttachTop)
-        {
-            isUpMove = false;
+        if(isReset == false)
+        {   
+            //简单的上下移动
+            if (transform.position.y >= _endPositon || isAttachTop)
+            {
+                isUpMove = false;
+            }
+            else if (transform.position.y <= _startPositon+0.1f)
+            {
+                isUpMove = true;
+            }
         }
-        else if (transform.position.y <= _startPositon+0.1f)
-        {
-            isUpMove = true;
-        }
-
         CheckBallonNum();
     }
     void FixedUpdate()
     {
         FaceToPlyer();
-
         if (isUpMove && isAttachTop == false && ballonNum>0)
         {
             EnemyUpMove();
@@ -72,13 +76,22 @@ public class EnemyBehavior : MonoBehaviour
         }
            
     }
+    private void OnCollisionExit2D(Collision2D collision2)
+    {
+        //地面检测
+        if (collision2.gameObject.tag == "Ground")
+        {
+            myState = plyerState.OnAir;
+        }
+    }
 
     // 使敌人朝向玩家
     void FaceToPlyer()
     {
-        //计算敌人和玩家间的坐标点积
-        float Seta = Vector3.Dot(_Player.transform.position, transform.position);
-        transform.rotation = Quaternion.Euler(0, Seta > 0 ? 180 : 0, 0);
+        // //计算敌人和玩家间的坐标点积
+        // float Seta = Vector3.Dot(_Player.transform.position, transform.position);
+        // transform.rotation = Quaternion.Euler(0, Seta > 0 ? 180 : 0, 0);
+        transform.rotation = Quaternion.Euler(0, ((_Player.transform.position.x - transform.position.x) > 0) ? 180 : 0, 0);
     }
 
     //敌人向上行动
@@ -87,6 +100,28 @@ public class EnemyBehavior : MonoBehaviour
         myState = plyerState.OnAir;
         _myRigidbody.AddForce(Vector2.up * upMoveSpeed);
 
+    }
+
+    //在地面上重整
+    void GetReset()
+    {
+        isReset = true;
+        isUpMove = false;
+
+        //到地面上了
+        if(myState == plyerState.OnGround && ballonNum == 0)
+        {
+            //重整时间过后，复活敌人
+            StartCoroutine(ResetEnemy());
+        }
+        
+    }
+    IEnumerator ResetEnemy()
+    {
+        yield return new WaitForSeconds(resetTime);
+        isReset = false;
+        //isUpMove = true;
+        ballonNum = 1;
     }
 
     //消灭敌人
@@ -111,14 +146,18 @@ public class EnemyBehavior : MonoBehaviour
         }
     }
 
-        //根据气球数量变化外貌
+    //根据气球数量变化外貌
     void CheckBallonNum()
     {
         switch(ballonNum)
         {
-            case 0:
+            case -1:
                 oneBallon.SetActive(false);
                 KillEnemy();
+                break;
+            case 0:
+                oneBallon.SetActive(false);
+                GetReset();
                 break;
             case 1:
                 oneBallon.SetActive(true);;
