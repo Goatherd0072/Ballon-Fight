@@ -9,16 +9,21 @@ public class BallonTrigger : MonoBehaviour
     void Awake()
     {
         //找到该气球所属的角色的标签
-        _myTag = transform.parent.tag;
+        _myTag = transform.tag;
         _opponentTag = (_myTag == "Player") ? "Enemy" : "Player";
         //Debug.Log(_myTag);
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.tag == _opponentTag)
+        if(other.tag != _myTag)
         {
-           
+            if(other.tag == "Enemy" || other.tag == "Player")
+            {
+                Debug.Log(_myTag+" 的气球被碰到了");
+
+            }
         }
+     
     }
 }

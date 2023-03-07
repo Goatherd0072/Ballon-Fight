@@ -8,7 +8,11 @@ public class EnemyBehavior : MonoBehaviour
     public float upMoveSpeed;
     public bool isAttachTop = false; //是否碰到顶部
     public bool isUpMove = true; //是否向上移动
+    public int ballonNum = 1; //气球数量
     public float upDistance; //上升的距离
+    public Transform checkPoint;
+    public Transform bottomPoint;
+
     private Rigidbody2D _myRigidbody;
     private float _startPositon;
     private float _endPositon;
@@ -31,12 +35,16 @@ public class EnemyBehavior : MonoBehaviour
             isUpMove = true;
         }
 
+        if(ballonNum <=-1)
+        {
+            KillEnemy();
+        }
     }
     void FixedUpdate()
     {
         FaceToPlyer();
 
-        if (isUpMove && isAttachTop == false)
+        if (isUpMove && isAttachTop == false && ballonNum>0)
         {
             EnemyUpMove();
         }
@@ -55,5 +63,15 @@ public class EnemyBehavior : MonoBehaviour
     {
         _myRigidbody.AddForce(Vector2.up * upMoveSpeed);
 
+    }
+
+    //消灭敌人
+    public void KillEnemy()
+    {
+        _myRigidbody.MovePosition(Vector2.up * -7f);
+        
+        //Vector3.Lerp(transform.position, Vector3.up * -7f, 1f);
+        //transform.Translate(Vector3.up * -7f);
+        //Destroy(gameObject);
     }
 }

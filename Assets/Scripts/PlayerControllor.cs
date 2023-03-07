@@ -16,6 +16,11 @@ public class PlayerControllor : MonoBehaviour
     public float jumpSpeed; //玩家的跳跃速度
     public float maxXSpeed = 3f; //最大x轴的移动速度
     public float maxYSpeed = 3f; //最大y轴的移动速度
+    public float boundaryDistance; //屏幕的边界的距离
+    public int ballonNum = 1; //气球数量
+
+    public Transform checkPoint;
+    public Transform bottomPoint;
 
     private Rigidbody2D _myRigidbody; //刚体
     void Awake()
@@ -31,11 +36,12 @@ public class PlayerControllor : MonoBehaviour
             _myRigidbody.bodyType = RigidbodyType2D.Dynamic;
             _myRigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
         }
+
     }
 
     void Update()
     {
-      
+        BoundaryCheck();
     }
     private void FixedUpdate()
     {
@@ -80,25 +86,47 @@ public class PlayerControllor : MonoBehaviour
         }
     }
 
-
     //碰撞检测
     private void OnCollisionEnter2D(Collision2D collision2)
     {
-        Debug.Log("碰撞了");
         //地面检测
         if (collision2.gameObject.tag == "Ground")
         {
             myState = plyerState.OnGround;
-        }  
+            Debug.Log("Player"+"碰撞了"+collision2.gameObject.tag);
+        }
+        
+        //碰撞到敌人，检测是否踩到气球
+        if(collision2.gameObject.tag == "Enemy")
+        {
+            if(bottomPoint.position.y >= collision2.gameObject.GetComponent<EnemyBehavior>().checkPoint.position.y)
+            {
+                collision2.gameObject.GetComponent<EnemyBehavior>().ballonNum--;
+            }
+        }
+        
+        
     }
     private void OnCollisionExit2D(Collision2D collision2)
     {
-        Debug.Log("离开了");
         //地面检测
         if (collision2.gameObject.tag == "Ground")
         {
             myState = plyerState.OnAir;
+            Debug.Log("Player"+"离开了"+collision2.gameObject.tag);
         }
     }
-
+    
+    //边界检测,防止玩家超过屏幕
+    void BoundaryCheck()
+    {
+        if(transform.position.x>boundaryDistance)
+        {
+            transform.position = new Vector3(-boundaryDistance, transform.position.y, transform.position.z);
+        }
+        else if(transform.position.x<-boundaryDistance)
+        {
+            transform.position = new Vector3(boundaryDistance, transform.position.y, transform.position.z);
+        }
+    }
 }
