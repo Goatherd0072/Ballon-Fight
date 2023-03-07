@@ -127,6 +127,12 @@ public class EnemyBehavior : MonoBehaviour
     //消灭敌人
     public void KillEnemy()
     {
+        ballonNum = -1;
+        isAttachTop = false; 
+        isUpMove = false; 
+        isReset = false;
+
+        Debug.Log("敌人死亡");
         Destroy(this.GetComponent<Rigidbody2D>());
         Destroy(this.GetComponent<CapsuleCollider2D>());
 

@@ -20,6 +20,7 @@ public class PlayerControllor : MonoBehaviour
     public float boundaryDistance; //屏幕的边界的距离
     public int ballonNum = 1; //气球数量
     public int healthNum = 2; //生命数量
+    public float respawnTime = 1f; //复活时间
 
     [Header("判断检测点")]
     public Transform checkPoint;//气球检测点
@@ -145,13 +146,24 @@ public class PlayerControllor : MonoBehaviour
         {
             ballonNum = 2;
             healthNum--;
-            transform.position = respawnPoint.position;
+            transform.position = new Vector3(10, 10, 10);
+            StartCoroutine(Respawn());
         }
         else 
         {
-            //死亡
-            Debug.Log("Player死亡");
+            PlayerDead();
         }
+    }
+
+    IEnumerator Respawn()
+    {
+        yield return new WaitForSeconds(respawnTime);
+        transform.position = respawnPoint.position;
+    }
+
+    public void PlayerDead()
+    {
+        Debug.Log("Player死亡");
     }
 
     //根据气球数量变化外貌
