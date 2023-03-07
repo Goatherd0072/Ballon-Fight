@@ -14,7 +14,8 @@ public class PlayerControllor : MonoBehaviour
     public plyerState myState; //玩家的状态
     public float moveSpeed; //玩家的移动速度
     public float jumpSpeed; //玩家的跳跃速度
-    public float maxSpeed = 3f; //最大移动速度
+    public float maxXSpeed = 3f; //最大x轴的移动速度
+    public float maxYSpeed = 3f; //最大y轴的移动速度
 
     private Rigidbody2D _myRigidbody; //刚体
     void Awake()
@@ -41,13 +42,10 @@ public class PlayerControllor : MonoBehaviour
         Movement();
         Jump();
         // 限制移动速度
-        if(Mathf.Abs(_myRigidbody.velocity.x)>maxSpeed)
+        if(Mathf.Abs(_myRigidbody.velocity.x)>maxXSpeed || Mathf.Abs(_myRigidbody.velocity.y)>maxYSpeed)
         {
-            _myRigidbody.velocity = _myRigidbody.velocity.normalized * maxSpeed;
-        }
-        if(Mathf.Abs(_myRigidbody.velocity.y)>maxSpeed)
-        {
-            _myRigidbody.velocity = _myRigidbody.velocity.normalized * maxSpeed;
+
+            // _myRigidbody.velocity = _myRigidbody.velocity.normalized * maxYSpeed;
         }
     }
 
@@ -62,8 +60,8 @@ public class PlayerControllor : MonoBehaviour
 
         if(canMove || myState==plyerState.OnGround)
         {
-            //_myRigidbody.AddForce(Vector2.right* moveSpeed*Input.GetAxisRaw("Horizontal"));
-            _myRigidbody.velocity = new Vector2(moveSpeed * Input.GetAxis("Horizontal"), 0);
+            _myRigidbody.AddForce(Vector2.right* moveSpeed*Input.GetAxisRaw("Horizontal"));
+            //_myRigidbody.velocity = new Vector2(moveSpeed * Input.GetAxis("Horizontal"), 0);
         }
     }
     //y轴的移动
@@ -87,6 +85,7 @@ public class PlayerControllor : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision2)
     {
         Debug.Log("碰撞了");
+        //地面检测
         if (collision2.gameObject.tag == "Ground")
         {
             myState = plyerState.OnGround;
@@ -95,6 +94,7 @@ public class PlayerControllor : MonoBehaviour
     private void OnCollisionExit2D(Collision2D collision2)
     {
         Debug.Log("离开了");
+        //地面检测
         if (collision2.gameObject.tag == "Ground")
         {
             myState = plyerState.OnAir;
