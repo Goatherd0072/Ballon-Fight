@@ -10,6 +10,7 @@ public enum plyerState //玩家的两种状态，地面和空中
 
 public class PlayerControllor : MonoBehaviour
 {
+    [Header("玩家参数")]
     public bool canMove = false;
     public plyerState myState; //玩家的状态
     public float moveSpeed; //玩家的移动速度
@@ -18,9 +19,16 @@ public class PlayerControllor : MonoBehaviour
     public float maxYSpeed = 3f; //最大y轴的移动速度
     public float boundaryDistance; //屏幕的边界的距离
     public int ballonNum = 1; //气球数量
+    public int healthNum = 2; //生命数量
 
-    public Transform checkPoint;
-    public Transform bottomPoint;
+    [Header("判断检测点")]
+    public Transform checkPoint;//气球检测点
+    public Transform bottomPoint;//底部检测点
+    public Transform respawnPoint;//复活点
+
+    [Header("角色外观")]
+    public GameObject oneBallon;//一个气球
+    public GameObject twoBallon;//两个气球
 
     private Rigidbody2D _myRigidbody; //刚体
     void Awake()
@@ -36,12 +44,12 @@ public class PlayerControllor : MonoBehaviour
             _myRigidbody.bodyType = RigidbodyType2D.Dynamic;
             _myRigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
         }
-
     }
 
     void Update()
     {
         BoundaryCheck();
+        CheckBallonNum();
     }
     private void FixedUpdate()
     {
@@ -127,6 +135,43 @@ public class PlayerControllor : MonoBehaviour
         else if(transform.position.x<-boundaryDistance)
         {
             transform.position = new Vector3(boundaryDistance, transform.position.y, transform.position.z);
+        }
+    }
+
+    //玩家的死亡检测
+    void CheckDead()
+    {
+        if(healthNum >0)
+        {
+            ballonNum = 2;
+            healthNum--;
+            transform.position = respawnPoint.position;
+        }
+        else 
+        {
+            //死亡
+            Debug.Log("Player死亡");
+        }
+    }
+
+    //根据气球数量变化外貌
+    void CheckBallonNum()
+    {
+        switch(ballonNum)
+        {
+            case 0:
+                oneBallon.SetActive(false);
+                twoBallon.SetActive(false);
+                CheckDead();
+                break;
+            case 1:
+                oneBallon.SetActive(true);
+                twoBallon.SetActive(false);
+                break;
+            case 2:
+                oneBallon.SetActive(false);                
+                twoBallon.SetActive(true);
+                break;
         }
     }
 }
