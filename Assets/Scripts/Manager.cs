@@ -45,7 +45,6 @@ public class Manager : MonoBehaviour
     //游戏结束
     public void GameOver()
     {
-        Destroy( GameObject.Find("Plyer"));
         GameObject.Find("UIControllor").GetComponent<UIControllor>().GameOverUI();
     }
 }

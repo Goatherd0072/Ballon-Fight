@@ -65,7 +65,7 @@ public class UIControllor : MonoBehaviour
     //更新左上角的❤的数量
     void HealthNumUI()
     {
-        int healthNum = GameObject.Find("Player").GetComponent<PlayerControllor>().healthNum;
+        int healthNum = PlayerControllor.healthNum;
         int healthNumUI= HealthPos.transform.childCount;
 
         if(healthNumUI == 0)
@@ -125,17 +125,10 @@ public class UIControllor : MonoBehaviour
     //下一关
     public void NextLevel()
     {
+        Time.timeScale = 1;
         UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex + 1);
     }
 
-    //重新开始游戏
-    public void RestartGame()
-    {
-        Time.timeScale = 1;
-        ScoreCounter._GetBubbleNum = 0;
-        ScoreCounter._score = 0;
-        UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
-    }
     //返回主菜单
     public void BackToMenu()
     {
@@ -155,6 +148,8 @@ public class UIControllor : MonoBehaviour
     //开始游戏
     public void StartGame()
     {
+        PlayerControllor.ballonNum = 2; //气球数量
+        PlayerControllor.healthNum = 2;
         UnityEngine.SceneManagement.SceneManager.LoadScene(1);
     }
 

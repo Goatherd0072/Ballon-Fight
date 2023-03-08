@@ -18,8 +18,8 @@ public class PlayerControllor : MonoBehaviour
     public float maxXSpeed = 3f; //最大x轴的移动速度
     public float maxYSpeed = 3f; //最大y轴的移动速度
     public float boundaryDistance; //屏幕的边界的距离
-    public int ballonNum = 1; //气球数量
-    public int healthNum = 2; //生命数量
+    public static int ballonNum = 2; //气球数量
+    public static int healthNum = 2; //生命数量
     public float respawnTime = 1f; //复活时间
 
     [Header("判断检测点")]
@@ -166,6 +166,9 @@ public class PlayerControllor : MonoBehaviour
     {
         Debug.Log("Player死亡");
         GameObject.Find("GameManager").GetComponent<Manager>().GameOver();
+        transform.position = new Vector3(0, 10, 0);
+
+        _myRigidbody.constraints = RigidbodyConstraints2D.FreezeAll;
     }
 
     //根据气球数量变化外貌
