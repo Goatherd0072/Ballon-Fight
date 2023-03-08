@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ScoreCounter : MonoBehaviour
 {
-    public int _score { set; get; }
+    public static int _score { set; get; }
     private int _maxScore;
     public int MaxScore 
     {

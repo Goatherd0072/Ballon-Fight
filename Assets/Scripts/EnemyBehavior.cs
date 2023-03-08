@@ -25,6 +25,11 @@ public class EnemyBehavior : MonoBehaviour
     private Rigidbody2D _myRigidbody;
     private float _startPositon;
     private float _endPositon;
+
+    void Awake()
+    {
+       
+    }
     void Start()
     {
         _Player = GameObject.FindWithTag("Player");
@@ -48,6 +53,7 @@ public class EnemyBehavior : MonoBehaviour
             }
         }
         CheckBallonNum();
+        BoundaryCheck();
     }
     void FixedUpdate()
     {
@@ -94,6 +100,17 @@ public class EnemyBehavior : MonoBehaviour
         // transform.rotation = Quaternion.Euler(0, Seta > 0 ? 180 : 0, 0);
         transform.rotation = Quaternion.Euler(0, ((_Player.transform.position.x - transform.position.x) > 0) ? 180 : 0, 0);
     }
+    void BoundaryCheck()
+    {
+        if(transform.position.x>_Player.GetComponent<PlayerControllor>().boundaryDistance)
+        {
+            transform.position = new Vector3(-_Player.GetComponent<PlayerControllor>().boundaryDistance, transform.position.y, transform.position.z);
+        }
+        else if(transform.position.x<-_Player.GetComponent<PlayerControllor>().boundaryDistance)
+        {
+            transform.position = new Vector3(_Player.GetComponent<PlayerControllor>().boundaryDistance, transform.position.y, transform.position.z);
+        }
+    }
 
     //敌人向上行动
     void EnemyUpMove()
@@ -132,7 +149,7 @@ public class EnemyBehavior : MonoBehaviour
         isAttachTop = false; 
         isUpMove = false; 
         isReset = false;
-        Debug.Log("敌人死亡");
+        //Debug.Log("敌人死亡");
         Destroy(this.GetComponent<Rigidbody2D>());
         Destroy(this.GetComponent<CapsuleCollider2D>());
 
@@ -146,7 +163,7 @@ public class EnemyBehavior : MonoBehaviour
             Vector3 pos = Vector3.Lerp(startPos, endPos, speed);
             transform.position = pos;
         }
-        else
+        if(transform.position.y <= -6.5)
         {
             Destroy(gameObject);
         }

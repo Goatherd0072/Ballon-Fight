@@ -17,7 +17,7 @@ public class UIControllor : MonoBehaviour
     void Start()
     {
         _scoreText = GameObject.Find("Score_Text").GetComponent<TMP_Text>();
-        _score = this.GetComponent<ScoreCounter>()._score;
+        _score = ScoreCounter._score;
 
         Menu.SetActive(false);
     }
@@ -32,7 +32,7 @@ public class UIControllor : MonoBehaviour
     //更新UI分数
     public void UpdateUIScore()
     {
-        _score = this.GetComponent<ScoreCounter>()._score;
+        _score = ScoreCounter._score;
         _scoreText.text = _score.ToString();
     }
     
