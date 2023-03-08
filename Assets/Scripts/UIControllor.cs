@@ -14,6 +14,9 @@ public class UIControllor : MonoBehaviour
     public GameObject Menu;
     public GameObject Health;
     public Transform HealthPos;
+    public GameObject endUI;
+    public TMP_Text endUIGetBum;
+    public TMP_Text endUISum;
     void Start()
     {
         _scoreText = GameObject.Find("Score_Text").GetComponent<TMP_Text>();
@@ -94,6 +97,7 @@ public class UIControllor : MonoBehaviour
 
     }
 
+    //                                          ESC键控制菜单
     //ESC键打开关闭菜单
     public void MenuControl()
     {
@@ -110,7 +114,6 @@ public class UIControllor : MonoBehaviour
         Menu.SetActive(true);
         LoseText.SetActive(true);
     }
-
 
     //恢复游戏
     public void ResumeGame()
@@ -129,11 +132,15 @@ public class UIControllor : MonoBehaviour
     public void RestartGame()
     {
         Time.timeScale = 1;
+        ScoreCounter._GetBubbleNum = 0;
+        ScoreCounter._score = 0;
         UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
     }
     //返回主菜单
     public void BackToMenu()
     {
+        ScoreCounter._GetBubbleNum = 0;
+        ScoreCounter._score = 0;
         Time.timeScale = 1;
         UnityEngine.SceneManagement.SceneManager.LoadScene(0);
     }
@@ -144,10 +151,25 @@ public class UIControllor : MonoBehaviour
         Application.Quit();
     }
 
-    //主菜单：
+    //                              主菜单：
     //开始游戏
     public void StartGame()
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene(1);
+    }
+
+    //                              奖励关
+    //结束UI
+    public void EndUI()
+    {
+        Time.timeScale = 0;
+        int getBubbles = ScoreCounter._GetBubbleNum;
+        endUIGetBum.text = getBubbles.ToString();
+
+        this.GetComponent<ScoreCounter>().AddScore(getBubbles * 300);
+        endUISum.text = (getBubbles * 300).ToString();
+
+        endUI.SetActive(true);
+        Destroy(Menu);
     }
 }

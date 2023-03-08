@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class ScoreCounter : MonoBehaviour
 {
-    public static int _score { set; get; }
-    private int _maxScore;
-    public int MaxScore 
-    {
-        set { _maxScore = value > _maxScore ? value : _maxScore; }
-        get { return _maxScore; } 
-    }
+    public static int _score { set; get; }//分数
+    public static int _GetBubbleNum = 0;//奖励气球数
+
+    // private int _maxScore;
+    // public int MaxScore 
+    // {
+    //     set { _maxScore = value > _maxScore ? value : _maxScore; }
+    //     get { return _maxScore; } 
+    // }
 
     void Update()
     {

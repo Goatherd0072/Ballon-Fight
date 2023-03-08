@@ -163,7 +163,7 @@ public class EnemyBehavior : MonoBehaviour
             Vector3 pos = Vector3.Lerp(startPos, endPos, speed);
             transform.position = pos;
         }
-        if(transform.position.y <= -6.5)
+        if(transform.position.y <= -6f)
         {
             Destroy(gameObject);
         }

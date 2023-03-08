@@ -10,20 +10,38 @@ public class Manager : MonoBehaviour
     void Start()
     {
         currentScene = SceneManager.GetActiveScene().buildIndex;
+        //气球奖励关
+        if(currentScene==2) 
+        {
+            StartCoroutine(BubblesLevel());
+        }
     }
 
-  
     void Update()
     {
         if(GameObject.FindGameObjectsWithTag("Enemy").Length == 0 && currentScene==1) NextLevel();
     }
 
+    //奖励关倒计时
+    IEnumerator BubblesLevel()
+    {
+        yield return new WaitForSeconds(20f);
+        NextLevel();
+    }
     public void NextLevel()
     {
+        if(currentScene==1) 
+        {
         //DontDestroyOnLoad(GameObject.Find("UIControllor"));
-        SceneManager.LoadScene(currentScene + 1);
+        SceneManager.LoadScene(2);
+        }
+        else if(currentScene==2) 
+        {
+           //Debug.Log("奖励关结束");
+            GameObject.Find("UIControllor").GetComponent<UIControllor>().EndUI();
+        }
     }
-
+    
     //游戏结束
     public void GameOver()
     {
