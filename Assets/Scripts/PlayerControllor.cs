@@ -111,6 +111,7 @@ public class PlayerControllor : MonoBehaviour
             if(bottomPoint.position.y >= collision2.gameObject.GetComponent<EnemyBehavior>().checkPoint.position.y)
             {
                 collision2.gameObject.GetComponent<EnemyBehavior>().ballonNum--;
+                collision2.gameObject.GetComponent<EnemyBehavior>().ScoreAdd(500);
             }
         }
         

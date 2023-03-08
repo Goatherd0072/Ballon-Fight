@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyBehavior : MonoBehaviour
 {
@@ -131,7 +132,6 @@ public class EnemyBehavior : MonoBehaviour
         isAttachTop = false; 
         isUpMove = false; 
         isReset = false;
-
         Debug.Log("敌人死亡");
         Destroy(this.GetComponent<Rigidbody2D>());
         Destroy(this.GetComponent<CapsuleCollider2D>());
@@ -171,5 +171,15 @@ public class EnemyBehavior : MonoBehaviour
         }
     }
 
+    public void ScoreAdd(int s)
+    {
+        //在空中击杀多 +500分
+        if(ballonNum == 0 && myState == plyerState.OnAir)
+        {
+            s += 500;
+        }
 
+        GameObject.Find("UIControllor").GetComponent<UIControllor>().FloatScore(transform,s);
+    }
+   
 }
