@@ -8,22 +8,25 @@ public class UIControllor : MonoBehaviour
 {
     private TMP_Text _scoreText;
     private int _score;
-    private GameObject _Menu;
     public GameObject floatScore;
     public GameObject canvas;
+    public GameObject LoseText;
+    public GameObject Menu;
+    public GameObject Health;
+    public Transform HealthPos;
     void Start()
     {
         _scoreText = GameObject.Find("Score_Text").GetComponent<TMP_Text>();
         _score = this.GetComponent<ScoreCounter>()._score;
 
-        _Menu = GameObject.Find("Menu");
-        _Menu.SetActive(false);
+        Menu.SetActive(false);
     }
 
     void Update()
     {
         UpdateUIScore();
         MenuControl();
+        HealthNumUI();
     }
 
     //更新UI分数
@@ -56,21 +59,64 @@ public class UIControllor : MonoBehaviour
     }
 
 
+    //更新左上角的❤的数量
+    void HealthNumUI()
+    {
+        int healthNum = GameObject.Find("Player").GetComponent<PlayerControllor>().healthNum;
+        int healthNumUI= HealthPos.transform.childCount;
+
+        if(healthNumUI == 0)
+        {
+            GameObject health = (GameObject)Instantiate(Health);
+            health.transform.position = HealthPos.position;
+            health.transform.SetParent(HealthPos);        
+            healthNumUI= HealthPos.transform.childCount;
+        }
+
+        if(healthNumUI < healthNum)
+        {
+            for(int i = 0; i < healthNum - healthNumUI; i++)
+            {
+                GameObject health = (GameObject)Instantiate(Health);
+                health.transform.SetParent(HealthPos.transform);
+                //新❤的位置是最后一个❤的位置的x轴+50
+                health.gameObject.GetComponent<RectTransform>().position = HealthPos.transform.GetChild(healthNumUI - 1).gameObject.GetComponent<RectTransform>().position + new Vector3(50, 0, 0);
+            }
+        }
+        else if(healthNumUI > healthNum)
+        {
+            for(int i = healthNumUI; i > healthNum; i++)
+            {
+                Destroy(HealthPos.transform.GetChild(i-1).gameObject);
+            }
+
+        }
+
+    }
+
     //ESC键打开关闭菜单
     public void MenuControl()
     {
         if(Input.GetKeyDown(KeyCode.Escape))
         {
-            _Menu.SetActive(_Menu.activeSelf ? false : true);
-            Time.timeScale = _Menu.activeSelf ? 0 : 1;
+            Menu.SetActive(Menu.activeSelf ? false : true);
+            Time.timeScale = Menu.activeSelf ? 0 : 1;
         }       
     }
+
+    //游戏失败UI
+    public void GameOverUI()
+    {
+        Menu.SetActive(true);
+        LoseText.SetActive(true);
+    }
+
 
     //恢复游戏
     public void ResumeGame()
     {
         Time.timeScale = 1;
-        _Menu.SetActive(false);
+        Menu.SetActive(false);
     }
 
     //下一关
@@ -84,6 +130,12 @@ public class UIControllor : MonoBehaviour
     {
         Time.timeScale = 1;
         UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
+    }
+    //返回主菜单
+    public void BackToMenu()
+    {
+        Time.timeScale = 1;
+        UnityEngine.SceneManagement.SceneManager.LoadScene(0);
     }
 
     //退出游戏

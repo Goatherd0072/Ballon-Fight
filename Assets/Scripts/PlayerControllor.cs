@@ -165,6 +165,7 @@ public class PlayerControllor : MonoBehaviour
     public void PlayerDead()
     {
         Debug.Log("Player死亡");
+        GameObject.Find("GameManager").GetComponent<Manager>().GameOver();
     }
 
     //根据气球数量变化外貌

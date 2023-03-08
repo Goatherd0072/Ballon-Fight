@@ -12,7 +12,7 @@ public class RiverTrigger : MonoBehaviour
         }
         if (other.gameObject.tag == "Player")
         {
-            other.gameObject.GetComponent<PlayerControllor>().PlayerDead();
+            other.gameObject.GetComponent<PlayerControllor>().ballonNum = 0;
         }
     }
 }
